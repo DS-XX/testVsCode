@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /*子元素*/
+        div > span{
+            color:red;
+        }
+        /* 后代元素*/
+        div span{
+            color:blue;
+        }
+        div > p > span{
+
+        }
+        /*选择下一个兄弟，最近的*/
+        p+span{
+
+        }
+        /*选择后面的所有兄弟元素*/
+        p ~ span{
+
+        }
+
+        /*.box1,.box2{*/
+        /*    height: 100px;*/
+        /*    width: 100px;*/
+        /*}*/
+        .box1{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            margin-top: 200px;
+        }
+        .box2{
+        background-color: yellow;
+        width: 300px;
+        height: 300px;
+            overflow: hidden;
+
+
+        }
+    </style>
+</head>
+<body>
+<p>子曰：<q>人不知，而不愠</q></p>
+<div>
+    这个是div里的，span外的东西
+    <span>这个是span里的东西</span>
+    <p>
+        <span>这个是第二个span</span>
+    </p>
+</div>
+
+<div class="box2">
+<div class="box1"></div>
+</div>
+
+
+</body>
+</html>

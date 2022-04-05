@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js学习</title>
+</head>
+<script type="text/javascript">
+    alert("弹出警告框");
+//    让计算机在页面输出一个内容
+//     document.write（）可以向body输出一个内容
+    document.write("让计算机在页面输出一个内容");
+    // 向控制台输出一个内容
+    console.log("向控制台输出一个内容");
+
+    var x=11;
+    console.log(x);
+
+    var a=["1","2","3"];
+    var x=a.join("");
+    console.log(x);
+
+    var x1=[1,2,4,5,3,2,1,];
+    // x1.sort();
+    x1.sort(function (a,b) {
+        return a-b;
+    })
+    console.log(x1);
+
+    var time=new Date();
+    console.log(time);
+    
+</script>
+<!--script标签一但引入外部文件，就不能编写代码了，编写了也没有用-->
+<script type="text/javascript" src="外部js.js"></script>
+
+<body>
+<button onclick="alert('按钮，警告框');">弹出警告框按钮</button>
+<a href="javascript:alert('');">弹出警告框超链接</a>
+</body>
+</html>

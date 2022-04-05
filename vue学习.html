@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue的学习</title>
+		<style>
+			.activeblue{
+				color:blue;
+			}
+			.parent{
+				background: red;
+				width: 200px;
+				height: 200px;
+				margin-top: 20px;
+			}
+			.parent .children{
+				margin-top:20px;
+				background-color: green;
+				height: 100px;
+				width: 100px;
+			}
+			.positionP{
+				margin-top: 20px;
+				width:200px;
+				height:200px;
+				background-color: red;
+
+			}
+			.positionP .positionC{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="vue.js"></script>
+		
+		<div id="app">
+			<h1>现在的数字是：{{counter}}</h1>
+			<button v-on:click="add">+</button>
+			<button @click="sub">-</button>
+			<div class="parent">
+				<div class="children">
+				</div>
+			</div>
+			<div class="positionP">
+				<div class="positionC">
+
+				</div>
+			</div>
+		</div>
+		<script>
+			const app=new Vue({
+				el:'#app',
+				data:{
+					counter:0
+				},
+				methods:{
+					add: function(){
+						this.counter++;
+						console.log('增加');
+					},
+					sub: function(){
+						this.counter--;
+						console.log('减小');
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+

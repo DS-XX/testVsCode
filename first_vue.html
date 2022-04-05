@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>刚认识vue</title>
+	
+	</head>
+	<body>
+	<!--
+    	作者：1325776557@qq.com
+    	时间：2021-06-04
+    	描述：创建vue对象，引用vue
+    -->
+	<div id="app">
+		<h1>{{name}}</h1>
+		<p>{{message}}</p>
+	</div>
+	<script src="vue.js"></script>
+	<script src="axios.js"></script>
+	<script>
+	const app = new Vue({
+		el: '#app',
+		data:{
+			message: 'are you pig？',
+			name: 'amazing!!!'
+		}
+		
+	})
+	axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';  //此处是增加的代码，设置请求头的类型
+	axios.get('http://127.0.0.1:8801/user/name').then(res=>{
+		console.log(res,'resresrse')
+	})
+	</script>
+	
+	<div id='list'>
+		<h1>{{message}}</h1>
+		<li v-for="item in movies">{{item}}</li>
+	</div>
+	
+	<script>
+		const list =new Vue({
+			el: '#list',
+			data: {
+				message: '这个是列表',
+				movies:['pig','cat','dog','bird','donkey']
+			}
+		})
+	</script>
+	
+	<div id='sum'>
+		<h1>当前计数：{{counter}}</h1>
+		<!--
+        	作者：1325776557@qq.com
+        	时间：2021-06-04
+        	描述：放在click里面的console.log()执行在控制台会显示错误
+        	其中@表示语法糖，是一种简写
+        -->
+		<button v-on:click="counter++;console.log('增加')">+</button>
+		<button @click="counter--;console.log('减小')">-</button>
+		<button v-on:click="add">add</button>
+		<button v-on:click="sub">sub</button>
+		
+	</div>
+	<div id='a'>
+		<h1>当前计数2 obj：{{counter}}</h1>
+		<button @click="counter++">+</button>
+	</div>
+	<script>
+		
+		const obj ={
+			counter:0 ,
+			message:'this is model'
+		}
+		const a=new Vue({
+			el: '#a',
+			data: obj
+		})
+		const sum=new Vue({
+			el: '#sum',
+			data:{
+				counter:0			
+			},
+			methods: {
+				add: function(){
+					console.log('增加');
+					this.counter++;
+				},
+				sub: function(){
+					console.log('减小');
+					this.counter--;
+				}
+			}
+		})
+	</script>
+	
+	
+	</body>
+</html>
