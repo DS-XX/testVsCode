@@ -40,12 +40,24 @@
                 form:{
                     loginName : '',
                     password: '',
+                    id: 10,
                 }
             }
 		},
         methods:{
             onSubmit(){
-                axios.get('http://localhost:8801/user/list').then(res=>{})
+                axios({
+                    url: 'http://localhost:8801/user/createName',
+                    method: 'post',
+                    data:{
+                        id: this.form.id,
+                        loginName: this.form.loginName,
+                        password: this.form.password
+                    },
+                }).then(res=>{
+
+                })
+                // axios.get('http://localhost:8801/user/list').then(res=>{})
             }
         }
 	    })
